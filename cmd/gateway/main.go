@@ -28,7 +28,7 @@ func main() {
 		// }
 		// // The static Next.js app will be served under `/`.
 		// http.Handle("/", http.FileServer(http.FS(distFS)))
-		http.Handle("/", http.FileServer(http.Dir("./public")))
+		http.Handle("/", http.FileServer(http.Dir("./public/nextjs/.next/dist")))
 	}
 
 	http.Handle("/api/feed", feed2json.Handler(
