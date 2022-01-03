@@ -1,6 +1,7 @@
 set -euxo pipefail
 
-cd public/nextjs
+# cd public/nextjs
+cd nextjs
 yarn install
 yarn run export
 cd -
