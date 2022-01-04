@@ -9,7 +9,7 @@ import (
 	"log"
 	"net/http"
 
-	"./maths"
+	"netlify-go/maths"
 
 	"github.com/carlmjohnson/feed2json"
 	"github.com/carlmjohnson/gateway"
@@ -61,7 +61,9 @@ func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	fmt.Fprintf(w, "%v", maths.OneTwoThree()+maths.OneTwoThree()+string(body))
+	finalOutput := maths.OneTwoThree() + "" + maths.OneTwoThree() + "" + string(body)
+
+	fmt.Fprintf(w, "%v", finalOutput)
 }
 
 // func cacheControlMiddleware(h http.Handler) http.Handler {
