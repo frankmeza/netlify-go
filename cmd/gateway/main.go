@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io/fs"
+	"io/ioutil"
 	"log"
 	"net/http"
 
@@ -50,16 +51,20 @@ func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
+
 	defer resp.Body.Close()
 
-	fmt.Fprintf(w, "+%v", resp.Body)
-	// h.ServeHTTP(w, r)
-	// }
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Fprintf(w, "+%v", body)
 }
 
-func cacheControlMiddleware(h http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Cache-Control", "public, max-age=300")
-		h.ServeHTTP(w, r)
-	})
-}
+// func cacheControlMiddleware(h http.Handler) http.Handler {
+// 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+// 		w.Header().Set("Cache-Control", "public, max-age=300")
+// 		h.ServeHTTP(w, r)
+// 	})
+// }
