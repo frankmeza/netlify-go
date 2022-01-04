@@ -35,11 +35,11 @@ func main() {
 		feed2json.StaticURLInjector("https://news.ycombinator.com/rss"), nil, nil, nil))
 
 	if *port == -1 {
-		log.Fatal(gateway.ListenAndServe("https://jovial-swirles-5cc968.netlify.app", nil))
+		log.Fatal(gateway.ListenAndServe("", nil))
 		return
 	}
 
-	log.Fatal(gateway.ListenAndServe("/", nil))
+	log.Fatal(gateway.ListenAndServe("", nil))
 
 	// http.Handle("/", http.FileServer(http.Dir("./public")))
 }
