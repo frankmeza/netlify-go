@@ -23,7 +23,6 @@ function Index(): JSX.Element {
 
     setChuckState(chuck);
 
-    console.table({ dataState, chuckState });
     return (
         <div>
             <h1>Hello, world!</h1>
