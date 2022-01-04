@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 
 async function fetcher(url: string) {
@@ -7,15 +8,24 @@ async function fetcher(url: string) {
 }
 
 function Index(): JSX.Element {
-    const { data, error } = useSWR("/api/feed", fetcher, {
-        refreshInterval: 1000,
-    });
+    const [dataState, setDataState] = useState("")
+    const [chuckState, setChuckState] = useState("")
 
-    const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, {
-        refreshInterval: 1000,
-    });
+    useEffect(() => {
+        const { data, error } = useSWR("/api/feed", fetcher, {
+            refreshInterval: 1000,
+        });
 
-    console.table({ data, error, chuck, errorC });
+        setDataState(data)
+
+        const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, {
+            refreshInterval: 1000,
+        });
+
+        setChuckState(chuck)
+    })
+
+    console.table({ dataState, chuckState });
     return (
         <div>
             <h1>Hello, world!</h1>
@@ -27,8 +37,8 @@ function Index(): JSX.Element {
             </p>
 
             <h2>We want chuck</h2>
-            {!error && data && <pre>{data}</pre>}
-            {!error && chuck && <pre>{chuck}</pre>}
+            <pre>{dataState}</pre>
+            <pre>{chuckState}</pre>
         </div>
     );
 }
