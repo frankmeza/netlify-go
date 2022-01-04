@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	"flag"
+	"fmt"
 	"io/fs"
 	"log"
 	"net/http"
@@ -39,6 +40,21 @@ func main() {
 		feed2json.StaticURLInjector("https://news.ycombinator.com/rss"),
 		nil, nil, nil, cacheControlMiddleware,
 	))
+
+	http.HandleFunc("/chuck", handleChuckJoke)
+}
+
+func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
+	// return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	resp, err := http.Get("https://api.chucknorris.io/jokes/random")
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+
+	fmt.Fprintf(w, "+%v", resp.Body)
+	// h.ServeHTTP(w, r)
+	// }
 }
 
 func cacheControlMiddleware(h http.Handler) http.Handler {
