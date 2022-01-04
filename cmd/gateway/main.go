@@ -22,11 +22,6 @@ func main() {
 	port := flag.Int("port", -1, "specify a port to use http rather than AWS Lambda")
 	flag.Parse()
 
-	if *port == -1 {
-		log.Fatal(gateway.ListenAndServe("The -1 error thing", nil))
-		return
-	}
-
 	distFS, err := fs.Sub(nextFS, "nextjs/dist")
 	if err != nil {
 		log.Fatal(err)
@@ -39,7 +34,12 @@ func main() {
 	http.Handle("/api/feed", feed2json.Handler(
 		feed2json.StaticURLInjector("https://news.ycombinator.com/rss"), nil, nil, nil))
 
-	log.Fatal(gateway.ListenAndServe("n/a", nil))
+	if *port == -1 {
+		log.Fatal(gateway.ListenAndServe("/", nil))
+		return
+	}
+
+	log.Fatal(gateway.ListenAndServe("/", nil))
 
 	// http.Handle("/", http.FileServer(http.Dir("./public")))
 }
