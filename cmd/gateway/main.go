@@ -9,6 +9,8 @@ import (
 	"log"
 	"net/http"
 
+	"./maths"
+
 	"github.com/carlmjohnson/feed2json"
 	"github.com/carlmjohnson/gateway"
 )
@@ -59,7 +61,7 @@ func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	fmt.Fprintf(w, "%v", string(body))
+	fmt.Fprintf(w, "%v", maths.OneTwoThree()+maths.OneTwoThree()+string(body))
 }
 
 // func cacheControlMiddleware(h http.Handler) http.Handler {
