@@ -3,13 +3,9 @@ package main
 import (
 	"embed"
 	"flag"
-	"fmt"
 	"io/fs"
-	"io/ioutil"
 	"log"
 	"net/http"
-
-	"netlify-go/maths"
 
 	"github.com/carlmjohnson/feed2json"
 	"github.com/carlmjohnson/gateway"
@@ -32,7 +28,7 @@ func main() {
 
 	// The static Next.js app will be served under `/`.
 	http.Handle("/", http.FileServer(http.FS(distFS)))
-	http.HandleFunc("/api/chuck", handleChuckJoke)
+	http.HandleFunc("/api/chuck", HandleChuckJoke)
 
 	http.Handle("/api/feed", feed2json.Handler(
 		feed2json.StaticURLInjector("https://news.ycombinator.com/rss"), nil, nil, nil))
@@ -47,24 +43,24 @@ func main() {
 	// http.Handle("/", http.FileServer(http.Dir("./public")))
 }
 
-func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
-	// return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-	resp, err := http.Get("https://api.chucknorris.io/jokes/random")
-	if err != nil {
-		panic(err)
-	}
+// func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
+// 	// return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+// 	resp, err := http.Get("https://api.chucknorris.io/jokes/random")
+// 	if err != nil {
+// 		panic(err)
+// 	}
 
-	defer resp.Body.Close()
+// 	defer resp.Body.Close()
 
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		panic(err)
-	}
+// 	body, err := ioutil.ReadAll(resp.Body)
+// 	if err != nil {
+// 		panic(err)
+// 	}
 
-	finalOutput := maths.OneTwoThree() + "" + maths.OneTwoThree() + "" + string(body)
+// 	finalOutput := maths.OneTwoThree() + "" + maths.OneTwoThree() + "" + string(body)
 
-	fmt.Fprintf(w, "%v", finalOutput)
-}
+// 	fmt.Fprintf(w, "%v", finalOutput)
+// }
 
 // func cacheControlMiddleware(h http.Handler) http.Handler {
 // 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
