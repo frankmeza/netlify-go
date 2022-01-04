@@ -6,9 +6,11 @@ import (
 	"io/fs"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/carlmjohnson/feed2json"
 	"github.com/carlmjohnson/gateway"
+	"github.com/frankmeza/netlify-go/api/chuck"
 )
 
 // //go:embed nextjs/dist
@@ -18,7 +20,7 @@ import (
 var nextFS embed.FS
 
 func main() {
-	port := flag.Int("port", -1, "specify a port to use http rather than AWS Lambda")
+	port := flag.Int("port", 0, "specify a port to use http rather than AWS Lambda")
 	flag.Parse()
 
 	distFS, err := fs.Sub(nextFS, "nextjs/dist")
@@ -28,18 +30,17 @@ func main() {
 
 	// The static Next.js app will be served under `/`.
 	http.Handle("/", http.FileServer(http.FS(distFS)))
-	http.HandleFunc("/api/chuck", HandleChuckJoke)
+	http.HandleFunc("/api/chuck", chuck.HandleChuckJoke)
 
 	http.Handle("/api/feed", feed2json.Handler(
 		feed2json.StaticURLInjector("https://news.ycombinator.com/rss"), nil, nil, nil))
 
-	if *port == -1 {
+	if *port == 0 {
 		log.Fatal(gateway.ListenAndServe("", nil))
-		return
+	} else {
+		portToUse := strconv.Itoa(*port)
+		log.Fatal(gateway.ListenAndServe(portToUse, nil))
 	}
-
-	log.Fatal(gateway.ListenAndServe("", nil))
-
 	// http.Handle("/", http.FileServer(http.Dir("./public")))
 }
 

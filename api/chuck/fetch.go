@@ -1,11 +1,9 @@
-package main
+package chuck
 
 import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-
-	"github.com/frankmeza/netlify-go/maths"
 )
 
 func HandleChuckJoke(w http.ResponseWriter, r *http.Request) {
@@ -22,7 +20,6 @@ func HandleChuckJoke(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	finalOutput := maths.OneTwoThree() + "" + maths.OneTwoThree() + "" + string(body)
-
+	finalOutput := OneTwoThree() + " " + OneTwoThree() + " " + "456 " + string(body)
 	fmt.Fprintf(w, "%v", finalOutput)
 }
