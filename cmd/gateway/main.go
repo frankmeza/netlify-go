@@ -41,7 +41,7 @@ func main() {
 		nil, nil, nil, cacheControlMiddleware,
 	))
 
-	http.HandleFunc("/chuck", handleChuckJoke)
+	http.HandleFunc("/api/chuck", handleChuckJoke)
 }
 
 func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
