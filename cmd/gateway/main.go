@@ -39,10 +39,10 @@ func main() {
 		http.Handle("/", http.FileServer(http.Dir("./public")))
 	}
 
-	http.HandleFunc("api/chuck", handleChuckJoke)
+	http.HandleFunc("/api/chuck", handleChuckJoke)
 	// http.Handle("/", http.FileServer(http.Dir("./public")))
 
-	http.Handle("api/feed", feed2json.Handler(
+	http.Handle("/api/feed", feed2json.Handler(
 		feed2json.StaticURLInjector("https://news.ycombinator.com/rss"), nil, nil, nil))
 	http.Handle("/", http.FileServer(http.FS(distFS)))
 	log.Fatal(listener(portStr, nil))

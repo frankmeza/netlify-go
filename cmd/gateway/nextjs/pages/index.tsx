@@ -9,7 +9,7 @@ async function fetcher(url: string) {
 function Index(): JSX.Element {
   const { data, error } = useSWR("/api/feed", fetcher, { refreshInterval: 1000 });
   const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, { refreshInterval: 1000 });
-
+    console.table({ data, error, chuck, errorC })
   return (
     <div>
       <h1>Hello, world!</h1>
@@ -21,7 +21,6 @@ function Index(): JSX.Element {
       </p>
 
     <h2>We want chuck</h2>
-      {!error && !data && <p>Loading ...</p>}
       {!error && data && <pre>{data}</pre>}
       {!error && chuck && <pre>{data}</pre>}
     </div>
