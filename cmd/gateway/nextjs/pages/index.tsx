@@ -7,7 +7,7 @@ async function fetcher(url: string) {
 }
 
 function Index(): JSX.Element {
-  const { data, error } = useSWR("/api", fetcher, { refreshInterval: 1000 });
+  const { data, error } = useSWR("/api/feed", fetcher, { refreshInterval: 1000 });
 
   return (
     <div>

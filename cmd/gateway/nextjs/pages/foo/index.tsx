@@ -9,6 +9,7 @@ function Foo(): JSX.Element {
       </p>
       <p>
         Check out <Link href="/foo/bar">bar</Link>.
+        Check out <Link href="../mdx">mdx</Link>.
       </p>
     </div>
   );
