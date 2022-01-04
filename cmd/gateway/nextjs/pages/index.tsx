@@ -8,22 +8,20 @@ async function fetcher(url: string) {
 }
 
 function Index(): JSX.Element {
-    const [dataState, setDataState] = useState("")
-    const [chuckState, setChuckState] = useState("")
+    const [dataState, setDataState] = useState("");
+    const [chuckState, setChuckState] = useState("");
 
-    useEffect(() => {
-        const { data, error } = useSWR("/api/feed", fetcher, {
-            refreshInterval: 1000,
-        });
+    const { data, error } = useSWR("/api/feed", fetcher, {
+        refreshInterval: 1000,
+    });
 
-        setDataState(data)
+    setDataState(data);
 
-        const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, {
-            refreshInterval: 1000,
-        });
+    const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, {
+        refreshInterval: 0,
+    });
 
-        setChuckState(chuck)
-    })
+    setChuckState(chuck);
 
     console.table({ dataState, chuckState });
     return (
