@@ -59,7 +59,7 @@ func handleChuckJoke(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	fmt.Fprintf(w, "+%v", body)
+	fmt.Fprintf(w, "+%v", string(body))
 }
 
 // func cacheControlMiddleware(h http.Handler) http.Handler {
