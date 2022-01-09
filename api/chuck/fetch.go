@@ -6,9 +6,12 @@ import (
 	"net/http"
 )
 
+const CHUCK_NORRIS_API = "https://api.chucknorris.io/jokes/random"
+
 func HandleChuckJoke(w http.ResponseWriter, r *http.Request) {
-	// return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-	resp, err := http.Get("https://api.chucknorris.io/jokes/random")
+	enableCors(&w)
+
+	resp, err := http.Get(CHUCK_NORRIS_API)
 	if err != nil {
 		panic(err)
 	}
@@ -20,6 +23,5 @@ func HandleChuckJoke(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	finalOutput := OneTwoThree() + " " + OneTwoThree() + " " + "456 " + string(body)
-	fmt.Fprintf(w, "%v", finalOutput)
+	fmt.Fprintf(w, "%v", string(body))
 }

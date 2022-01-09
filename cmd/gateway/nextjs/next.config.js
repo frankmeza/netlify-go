@@ -1,31 +1,32 @@
-// const withMdx = require("@next/mdx")({
-//     extension: /\.mdx?$/,
-//     options: {
-//         remarkPlugins: [],
-//         rehypePlugins: [],
-//     },
-// });
+const withMdx = require("@next/mdx")({
+    extension: /\.mdx?$/,
+    options: {
+        remarkPlugins: [],
+        rehypePlugins: [],
+    },
+});
 
-// module.exports = {
-//     async rewrites() {
-//         // When running Next.js via Node.js (e.g. `dev` mode), proxy API requests
-//         // to the Go server.
-//         return [
-//             {
-//                 source: "/api",
-//                 destination: "http://localhost:8080/api",
-//             },
-//         ];
-//     },
-//     future: {
-//         webpack5: true,
-//     },
-//     trailingSlash: true,
-//     withMdx: withMdx({
-//         pageExtensions: ["js", "jsx", "md", "mdx"],
-//     }),
-// };
 module.exports = {
+    // i wish this worked...
+    // When running Next.js via Node.js (e.g. `dev` mode),
+    // proxy API requests to the Go server.
+    // async rewrites() {
+    //     return process.env.NODE_ENV === "development"
+    //         ? [
+    //               {
+    //                   source: "/api/:slug*",
+    //                   destination: `http://localhost:3333/api/:slug*`,
+    //               },
+    //           ]
+    //         : [];
+    // },
+    future: {
+        webpack5: true,
+    },
+    trailingSlash: false,
+    withMdx: withMdx({
+        pageExtensions: ["js", "jsx", "md", "mdx"],
+    }),
     // Prefer loading of ES Modules over CommonJS
     experimental: { esmExternals: true },
     // Support MDX files as pages:

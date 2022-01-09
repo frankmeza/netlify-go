@@ -1,16 +1,8 @@
 import Link from "next/link";
 import useSWR from "swr";
-
-async function fetcher(url: string) {
-    const resp = await fetch(url);
-    return resp.text();
-}
+import { fetcher } from "../utils";
 
 function Index(): JSX.Element {
-    const { data, error } = useSWR("/api/feed", fetcher, {
-        refreshInterval: 1000,
-    });
-
     const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, {
         refreshInterval: 0,
     });
@@ -26,7 +18,6 @@ function Index(): JSX.Element {
             </p>
 
             <h2>We want chuck</h2>
-            <pre>{data || error}</pre>
             <pre>{chuck || errorC}</pre>
         </div>
     );
