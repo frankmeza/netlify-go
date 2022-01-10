@@ -9,8 +9,6 @@ import (
 const CHUCK_NORRIS_API = "https://api.chucknorris.io/jokes/random"
 
 func HandleChuckJoke(w http.ResponseWriter, r *http.Request) {
-	enableCors(&w)
-
 	resp, err := http.Get(CHUCK_NORRIS_API)
 	if err != nil {
 		panic(err)
