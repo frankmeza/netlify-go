@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/carlmjohnson/feed2json"
 	"github.com/carlmjohnson/gateway"
 	"github.com/frankmeza/netlify-go/api/chuck"
 )
@@ -47,11 +46,7 @@ func main() {
 
 	// The static Next.js app will be served under `/`.
 	http.Handle("/", http.FileServer(http.FS(distFS)))
-	http.Handle("/carl", http.FileServer(http.Dir("./public")))
 	http.HandleFunc("/api/chuck", enableCORS(chuck.HandleChuckJoke))
-
-	http.Handle("/api/feed", feed2json.Handler(
-		feed2json.StaticURLInjector("https://news.ycombinator.com/rss"), nil, nil, nil))
 
 	if *port == 0 {
 		// netlify
