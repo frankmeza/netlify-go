@@ -4,6 +4,7 @@ export default css.container`
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: var(--size-500);
     max-width: 1300px;
     padding-left: var(--size-700);
     padding-right: var(--size-700);

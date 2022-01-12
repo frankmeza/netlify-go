@@ -20,23 +20,22 @@ function Index(): JSX.Element {
                 {globalStyles}
             </style>
 
-            <Header />
-
-            <div className="container-div">
-
-            </div>
             <style jsx>{container}</style>
 
-            <h1>Hello, world!</h1>
-            <p>
-                This is <code>pages/index.tsx</code>.
-            </p>
-            <p>
-                Check out <Link href="/foo">foo</Link>.
-            </p>
+            <div className="container">
+                <Header />
 
-            <h2>We want chuck</h2>
-            <pre>{chuck || errorC}</pre>
+                <h1>Hello, world!</h1>
+                <p>
+                    This is <code>pages/index.tsx</code>.
+                </p>
+                <p>
+                    Check out <Link href="/foo">foo</Link>.
+                </p>
+
+                <h2>We want chuck</h2>
+                <pre>{chuck || errorC}</pre>
+            </div>
         </React.Fragment>
     );
 }
