@@ -9,6 +9,8 @@ export default css.header`
 }
 
 .header_wrapper {
+    display: flex;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     max-width: 1300px;
@@ -24,13 +26,17 @@ export default css.header`
     }
 }
 
-.header_title
-    margin-left: auto;
+.header_title {
     margin-right: auto;
     max-width: 1300px;
     padding-left: var(--size-700);
     padding-right: var(--size-700);
     height: 100%;
+}
+
+.header_title a {
+    text-decoration: none;
+    background-color: none;;
 }
 
 @media screen and (max-width: 1000px) {

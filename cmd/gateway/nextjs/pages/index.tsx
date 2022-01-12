@@ -1,8 +1,13 @@
+import React from "react";
 import Link from "next/link";
+
 import useSWR from "swr";
 import { fetcher } from "../utils";
 
+import Header from "../components/header";
+
 import globalStyles from "../styles/global.js";
+import container from "../styles/container.js";
 
 function Index(): JSX.Element {
     const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, {
@@ -10,7 +15,18 @@ function Index(): JSX.Element {
     });
 
     return (
-        <div>
+        <React.Fragment>
+            <style jsx global>
+                {globalStyles}
+            </style>
+
+            <Header />
+
+            <div className="container-div">
+
+            </div>
+            <style jsx>{container}</style>
+
             <h1>Hello, world!</h1>
             <p>
                 This is <code>pages/index.tsx</code>.
@@ -21,11 +37,7 @@ function Index(): JSX.Element {
 
             <h2>We want chuck</h2>
             <pre>{chuck || errorC}</pre>
-
-            <style jsx global>
-                {globalStyles}
-            </style>
-        </div>
+        </React.Fragment>
     );
 }
 
