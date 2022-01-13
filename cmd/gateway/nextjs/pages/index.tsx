@@ -10,9 +10,10 @@ import globalStyles from "../styles/global.js";
 import container from "../styles/container.js";
 
 function Index(): JSX.Element {
-    const { data: chuck, error: errorC } = useSWR("/api/chuck", fetcher, {
-        refreshInterval: 0,
-    });
+    const {
+        data: chuck,
+        error: errorC,
+    } = useSWR("/api/chuck", fetcher, { refreshInterval: 0 });
 
     return (
         <React.Fragment>
