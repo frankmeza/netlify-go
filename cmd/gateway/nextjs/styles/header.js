@@ -1,11 +1,8 @@
-// todo: make these into a single default export and add the names as classes
-// like how global.js uses element selectors
-
 import css from "styled-jsx/css";
 
-export default css.header`
+export default css.headerStyles`
     .styled_header {
-        padding-top: var(--size-300);
+        padding-top: var(--size-500);
     }
 
     .header_wrapper {

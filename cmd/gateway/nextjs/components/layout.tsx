@@ -1,10 +1,37 @@
 import React from "react";
+import Link from "next/link";
 
-export default function Component() {
-    return (
-        <div>
-        <h1>wtf yaassss</h1>
-        some Component text too
-        </div>
-    )
+import useSWR from "swr";
+import { fetcher } from "../utils";
+
+import Header from "../components/header";
+import Footer from "../components/footer";
+
+import globalStyles from "../styles/global.js";
+import containerStyles from "../styles/container.js";
+
+interface LayoutProps {
+    meta?: Object;
+    children?: JSX.Element;
 }
+
+const Layout = ({ children, meta }: LayoutProps): JSX.Element => {
+    return (
+        <React.Fragment>
+            <style jsx global>
+                {globalStyles}
+            </style>
+
+            <style jsx>{containerStyles}</style>
+
+            <Header />
+
+            <main>
+                <div className="container">{children}</div>
+            </main>
+            <Footer />
+        </React.Fragment>
+    );
+};
+
+export default Layout;
