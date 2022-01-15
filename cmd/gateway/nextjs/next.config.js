@@ -7,30 +7,14 @@ const withMdx = require("@next/mdx")({
 });
 
 module.exports = {
-    // i wish this worked...
-    // When running Next.js via Node.js (e.g. `dev` mode),
-    // proxy API requests to the Go server.
-    // async rewrites() {
-    //     return process.env.NODE_ENV === "development"
-    //         ? [
-    //               {
-    //                   source: "/api/:slug*",
-    //                   destination: `http://localhost:3333/api/:slug*`,
-    //               },
-    //           ]
-    //         : [];
-    // },
+    // Prefer loading of ES Modules over CommonJS
+    experimental: { esmExternals: true },
     future: {
         webpack5: true,
     },
-    trailingSlash: false,
-    withMdx: withMdx({
-        pageExtensions: ["js", "jsx", "md", "mdx"],
-    }),
-    // Prefer loading of ES Modules over CommonJS
-    experimental: { esmExternals: true },
     // Support MDX files as pages:
     pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
+    trailingSlash: false,
     // Support loading `.md`, `.mdx`:
     webpack(config, options) {
         config.module.rules.push({
@@ -50,4 +34,7 @@ module.exports = {
 
         return config;
     },
+    withMdx: withMdx({
+        pageExtensions: ["js", "jsx", "md", "mdx"],
+    }),
 };
