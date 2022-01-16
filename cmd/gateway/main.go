@@ -8,7 +8,8 @@ import (
 	"net/http"
 
 	"github.com/carlmjohnson/gateway"
-	"github.com/frankmeza/netlify-go/api/chuck"
+	chuck "github.com/frankmeza/netlify-go/api/chuck"
+	fake_api "github.com/frankmeza/netlify-go/api/fake_api"
 )
 
 func enableCORS(next http.HandlerFunc) http.HandlerFunc {
@@ -36,7 +37,7 @@ func enableCORS(next http.HandlerFunc) http.HandlerFunc {
 var nextFS embed.FS
 
 func main() {
-	port := flag.Int("port", 0, "specify a port to use http rather than AWS Lambda")
+	isDevelopment := flag.Int("dev", 0, "use flag -dev 1 to start server on :3333")
 	flag.Parse()
 
 	distFS, err := fs.Sub(nextFS, "nextjs/dist")
@@ -47,12 +48,14 @@ func main() {
 	// The static Next.js app will be served under `/`.
 	http.Handle("/", http.FileServer(http.FS(distFS)))
 	http.HandleFunc("/api/chuck", enableCORS(chuck.HandleChuckJoke))
+	http.HandleFunc("/api/fake_api", enableCORS(fake_api.HandleFetchJSON))
 
-	if *port == 0 {
+	if *isDevelopment == 0 {
 		// netlify
 		log.Fatal(gateway.ListenAndServe("", nil))
 	} else {
 		// local
+		println("server running on localhost:3333")
 		log.Fatal(http.ListenAndServe(":3333", nil))
 	}
 }
