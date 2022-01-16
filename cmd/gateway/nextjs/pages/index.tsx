@@ -10,15 +10,12 @@ import Footer from "../components/footer";
 import globalStyles from "../styles/global.js";
 import containerStyles from "../styles/container.js";
 
-import { MDXProvider } from "@mdx-js/react";
-
 const IndexPage = (): JSX.Element => {
     return (
         <React.Fragment>
             <style jsx global>
                 {globalStyles}
             </style>
-
             <style jsx>{containerStyles}</style>
 
             <Header />
