@@ -11,6 +11,9 @@ import globalStyles from "../styles/global.js";
 import containerStyles from "../styles/container.js";
 
 const IndexPage = (): JSX.Element => {
+    const { data, error } = useSWR("/api/fake_api", fetcher, { refreshInterval: 0 });
+
+    console.table({ data, error })
     return (
         <React.Fragment>
             <style jsx global>

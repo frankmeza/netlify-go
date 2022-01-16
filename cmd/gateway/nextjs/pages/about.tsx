@@ -6,7 +6,7 @@ import aboutStyles from "../styles/about.js";
 
 import About from "./_markdown/about.mdx";
 
-const AboutPage = ({ source }) => {
+const AboutPage = () => {
     return (
         <React.Fragment>
             <style jsx>{aboutStyles}</style>
