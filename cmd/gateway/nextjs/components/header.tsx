@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import headerStyles from "../styles/header.js";
 
@@ -29,21 +30,29 @@ const Header = () => {
             <div className="styled_header">
                 <div className="header_wrapper">
                     <div className="header_title">
-                        <a href={META.TITLE.URL}>{META.TITLE.TEXT}</a>
+                        <Link href={META.TITLE.URL}>
+                            <a>{META.TITLE.TEXT}</a>
+                        </Link>
                     </div>
 
                     <div className="styled_nav">
                         <div className="styled_nav_list">
                             <div className="styled_nav_list_item">
-                                <a href={META.ABOUT.URL}>{META.ABOUT.TEXT}</a>
+                                <Link href={META.ABOUT.URL}>
+                                    <a>{META.ABOUT.TEXT}</a>
+                                </Link>
                             </div>
 
                             <div className="styled_nav_list_item">
-                                <a href={META.BLOG.URL}>{META.BLOG.TEXT}</a>
+                                <Link href={META.BLOG.URL}>
+                                    <a>{META.BLOG.TEXT}</a>
+                                </Link>
                             </div>
 
                             <div className="styled_nav_list_item">
-                                <a href={META.NOW.URL}>{META.NOW.TEXT}</a>
+                                <Link href={META.NOW.URL}>
+                                    <a>{META.NOW.TEXT}</a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -52,5 +61,5 @@ const Header = () => {
         </React.Fragment>
     );
 };
-
+//*[@id="__next"]/div[1]/div/div[2]/div/div[1]/a
 export default Header;

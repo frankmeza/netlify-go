@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import footerStyles from "../styles/footer";
 
@@ -41,27 +42,27 @@ const Footer = () => {
                 <div className="styled_footer">
                     <ul className="social_link_list">
                         <li className="social_link_item">
-                            <a href={SOCIAL_LINKS.GITHUB.URL}>
-                                {SOCIAL_LINKS.GITHUB.SITE_NAME}
-                            </a>
+                            <Link href={SOCIAL_LINKS.GITHUB.URL}>
+                                <a>{SOCIAL_LINKS.GITHUB.SITE_NAME}</a>
+                            </Link>
                         </li>
 
                         <li className="social_link_item">
-                            <a href={SOCIAL_LINKS.LINKED_IN.URL}>
-                                {SOCIAL_LINKS.LINKED_IN.SITE_NAME}
-                            </a>
+                            <Link href={SOCIAL_LINKS.LINKED_IN.URL}>
+                                <a>{SOCIAL_LINKS.LINKED_IN.SITE_NAME}</a>
+                            </Link>
                         </li>
 
                         <li className="social_link_item">
-                            <a href={SOCIAL_LINKS.TELEGRAM.URL}>
-                                {SOCIAL_LINKS.TELEGRAM.SITE_NAME}
-                            </a>
+                            <Link href={SOCIAL_LINKS.TELEGRAM.URL}>
+                                <a>{SOCIAL_LINKS.TELEGRAM.SITE_NAME}</a>
+                            </Link>
                         </li>
 
                         <li className="social_link_item">
-                            <a href={SOCIAL_LINKS.INSTAGRAM.URL}>
-                                {SOCIAL_LINKS.INSTAGRAM.SITE_NAME}
-                            </a>
+                            <Link href={SOCIAL_LINKS.INSTAGRAM.URL}>
+                                <a>{SOCIAL_LINKS.INSTAGRAM.SITE_NAME}</a>
+                            </Link>
                         </li>
                     </ul>
 
