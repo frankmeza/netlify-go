@@ -43,9 +43,9 @@ export default css.footerStyles`
     }
 
     .social_link_item a {
+        text-decoration: none;
         color: inherit;
         font-size: var(--size-300);
-        list
     }
 
     .footer_attribution {

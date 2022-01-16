@@ -4,7 +4,8 @@ import css from "styled-jsx/css";
 
 export default css.aboutStyles`
     .about_wrapper {
-        margin-top: 14rem;
+        // border: solid red;
+        margin-top: 9rem;
         margin-bottom: 21rem;
         display: flex;
         align-items: center;
@@ -29,10 +30,15 @@ export default css.aboutStyles`
         border-radius: 50%;
         height: 300px;
         width: 300px;
+        margin: var(--size-900) 0;
     }
 
     .about_copy {
         max-width: 60ch;
+    }
+
+    .about_copy > h2 {
+        margin-top: 3rem;
     }
 
     .about_copy p {

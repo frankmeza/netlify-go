@@ -33,7 +33,8 @@ export default css.headerStyles`
 
     .header_title a {
         text-decoration: none;
-        background-color: none;;
+        background-color: none;
+        font-size: var(--size-500);
     }
 
     @media screen and (max-width: 1000px) {
@@ -59,21 +60,24 @@ export default css.headerStyles`
         list-style-type: none;
     }
 
-    .styled_nav_list_item:not(:last-of-type) {
-        margin-right: 2rem;
-    }
-
     @media screen and (max-width: 700px) {
-        .styled_nav_list_item:not(:last-of-type) {
-            margin-right: 1rem;
+        .styled_nav_list_item {
+            margin-left: 1rem;
         }
     }
 
-    .styled_nav_list_item a {
+    .styled_nav_list_item {
+        margin-left: 2rem;
         color: inherit;
         text-transform: uppercase;
         font-size: var(--size-300);
+        letter-spacing: 0.1rem;
+    }
+
+    .styled_nav_list_item a {
         text-decoration: none;
+        color: inherit;
+        font-size: var(--size-300);
         letter-spacing: 0.1rem;
     }
 

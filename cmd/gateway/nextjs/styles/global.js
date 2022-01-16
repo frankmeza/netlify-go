@@ -121,6 +121,8 @@ export default css.global`
     h2,
     h3 {
         font-weight: 700;
+        margin-top: var(--size-600);
+        margin-bottom: var(--size-300);
     }
 
     h1 {
@@ -146,9 +148,5 @@ export default css.global`
     p,
     li {
         max-width: none;
-    }
-
-    .gatsby-resp-image-wrapper {
-        margin-left: 0 !important;
     }
 `;
