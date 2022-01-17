@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 
 import aboutStyles from "../styles/about.js";
 
-import About from "./_markdown/about.mdx";
+import About from "./markdown/about.mdx";
 
 const AboutPage = () => {
     return (
