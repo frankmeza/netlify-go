@@ -1,14 +1,33 @@
 import React from "react";
-import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
 import { RootState } from "../../../store";
 import { decrement, increment } from "../../../store/slices/counter";
 
-import { getClassNames } from "./utils";
 import { STRINGS } from "../../../constant_values";
+import classNames from "classnames";
+import useSWR from "swr";
+import { fetcher } from "../../../utils";
 
 const { DECREMENT, INCREMENT } = STRINGS;
+
+const decrementButtonStyle = classNames(
+    "button",
+    "is-danger",
+    "is-large",
+    "m-6",
+);
+
+const incrementButtonStyle = classNames(
+    "button",
+    "is-primary",
+    "is-large",
+    "m-6",
+);
+
+const sumStyles = classNames("is-size-2");
+
+const containerStyles = classNames("m-6")
 
 const Counter = () => {
     const dispatch = useDispatch();
@@ -25,56 +44,34 @@ const Counter = () => {
         dispatch(decrement());
     };
 
-    const { decrementButtonStyle, incrementButtonStyle } = getClassNames();
+    const { data, error } = useSWR("/api/fake_api", fetcher);
+    console.table({ data, error })
 
     return (
         <React.Fragment>
-            <CounterAppContainer>
-                <div className="counter_app_container">
-                    <div className="buttons">
-                        <button
-                            aria-label="Increment value"
-                            className={incrementButtonStyle}
-                            onClick={onClickIncrement}
-                        >
-                            {INCREMENT}
-                        </button>
+            <div className={containerStyles}>
+                <div className="buttons">
+                    <button
+                        aria-label="Increment value"
+                        className={incrementButtonStyle}
+                        onClick={onClickIncrement}
+                    >
+                        {INCREMENT}
+                    </button>
 
-                        <span className="counter_app_sum">{count}</span>
+                    <span className={sumStyles}>{count}</span>
 
-                        <button
-                            aria-label="Decrement value"
-                            className={decrementButtonStyle}
-                            onClick={onClickDecrement}
-                        >
-                            {DECREMENT}
-                        </button>
-                    </div>
+                    <button
+                        aria-label="Decrement value"
+                        className={decrementButtonStyle}
+                        onClick={onClickDecrement}
+                    >
+                        {DECREMENT}
+                    </button>
                 </div>
-            </CounterAppContainer>
+            </div>
         </React.Fragment>
     );
 };
 
 export default Counter;
-
-const CounterAppContainer = styled.div`
-    .counter_app_container {
-        align-items: center;
-        display: flex;
-        flex: 1;
-    }
-
-    .counter_app_button {
-        align-content: center;
-        display: flex;
-        margin: 2rem;
-    }
-
-    .counter_app_sum {
-        font-size: 3rem;
-        margin-left: 2rem;
-        margin-top: 2rem;
-        padding: 1.5rem;
-    }
-`;
