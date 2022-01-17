@@ -8,8 +8,6 @@ import { decrement, increment } from "../../../store/slices/counter";
 import { getClassNames } from "./utils";
 import { STRINGS } from "../../../constant_values";
 
-// import "./counter_app.css";
-
 const { DECREMENT, INCREMENT } = STRINGS;
 
 const Counter = () => {
@@ -28,38 +26,44 @@ const Counter = () => {
     };
 
     const { decrementButtonStyle, incrementButtonStyle } = getClassNames();
-    console.table({ decrementButtonStyle, incrementButtonStyle })
+
     return (
-        <CounterAppContainer>
-            <div className="buttons">
-                <button
-                    aria-label="Increment value"
-                    className={incrementButtonStyle}
-                    onClick={onClickIncrement}
-                >
-                    {INCREMENT}
-                </button>
+        <React.Fragment>
+            <CounterAppContainer>
+                <div className="counter_app_container">
+                    <div className="buttons">
+                        <button
+                            aria-label="Increment value"
+                            className={incrementButtonStyle}
+                            onClick={onClickIncrement}
+                        >
+                            {INCREMENT}
+                        </button>
 
-                <span className="counter_app_sum">{count}</span>
+                        <span className="counter_app_sum">{count}</span>
 
-                <button
-                    aria-label="Decrement value"
-                    className={decrementButtonStyle}
-                    onClick={onClickDecrement}
-                >
-                    {DECREMENT}
-                </button>
-            </div>
-        </CounterAppContainer>
+                        <button
+                            aria-label="Decrement value"
+                            className={decrementButtonStyle}
+                            onClick={onClickDecrement}
+                        >
+                            {DECREMENT}
+                        </button>
+                    </div>
+                </div>
+            </CounterAppContainer>
+        </React.Fragment>
     );
 };
 
 export default Counter;
 
 const CounterAppContainer = styled.div`
-    align-items: center;
-    display: flex;
-    flex: 1;
+    .counter_app_container {
+        align-items: center;
+        display: flex;
+        flex: 1;
+    }
 
     .counter_app_button {
         align-content: center;
@@ -68,7 +72,7 @@ const CounterAppContainer = styled.div`
     }
 
     .counter_app_sum {
-        font-size: 2rem;
+        font-size: 3rem;
         margin-left: 2rem;
         margin-top: 2rem;
         padding: 1.5rem;
