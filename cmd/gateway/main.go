@@ -37,7 +37,10 @@ func enableCORS(next http.HandlerFunc) http.HandlerFunc {
 var nextFS embed.FS
 
 func main() {
-	isDevelopment := flag.Int("dev", 0, "use flag -dev 1 to start server on :3333")
+	isDevelopment := flag.Int(
+		"dev", 0, "append -dev 1 to start server on :3333",
+	)
+
 	flag.Parse()
 
 	distFS, err := fs.Sub(nextFS, "nextjs/dist")
