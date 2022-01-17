@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { RootState } from "../../../store";
-import { decrement, increment } from "../../../store/slices/counter";
+import { RootState } from "../../store";
+import { decrement, increment } from "../../store/slices/counter";
 
-import { STRINGS } from "../../../constant_values";
+import { STRINGS } from "../../constant_values";
 import classNames from "classnames";
 import useSWR from "swr";
-import { fetcher } from "../../../utils";
+import { fetcher } from "../../utils";
 
 const { DECREMENT, INCREMENT } = STRINGS;
 
