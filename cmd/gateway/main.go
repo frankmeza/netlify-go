@@ -8,8 +8,8 @@ import (
 	"net/http"
 
 	"github.com/carlmjohnson/gateway"
-	chuck "github.com/frankmeza/netlify-go/api/chuck"
-	fake_api "github.com/frankmeza/netlify-go/api/fake_api"
+	"github.com/frankmeza/netlify-go/api/chuck"
+	fakeApi "github.com/frankmeza/netlify-go/api/fake_api"
 )
 
 func enableCORS(next http.HandlerFunc) http.HandlerFunc {
@@ -51,10 +51,11 @@ func main() {
 	// The static Next.js app will be served under `/`.
 	http.Handle("/", http.FileServer(http.FS(distFS)))
 	http.HandleFunc("/api/chuck", enableCORS(chuck.HandleChuckJoke))
-	http.HandleFunc("/api/fake_api", enableCORS(fake_api.HandleFetchJSON))
+	http.HandleFunc("/api/fake_api", enableCORS(fakeApi.HandleFetchJSON))
 
 	if *isDevelopment == 0 {
 		// netlify
+		println("append -dev 1 to start server on :3333")
 		log.Fatal(gateway.ListenAndServe("", nil))
 	} else {
 		// local
