@@ -1,8 +1,4 @@
 import React from "react";
-import Link from "next/link";
-
-import useSWR from "swr";
-import { fetcher } from "../utils";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -29,6 +25,7 @@ const Layout = ({ children, meta }: LayoutProps): JSX.Element => {
             <main>
                 <div className="container">{children}</div>
             </main>
+
             <Footer />
         </React.Fragment>
     );

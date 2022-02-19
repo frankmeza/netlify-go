@@ -17,7 +17,6 @@ const AboutPage = () => {
                         className="about_image_wrapper"
                         src="https://http.cat/200"
                     />
-
                     <div className="about_copy">
                         <About />
                     </div>

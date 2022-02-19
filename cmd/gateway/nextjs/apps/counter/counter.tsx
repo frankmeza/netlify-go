@@ -44,7 +44,7 @@ const Counter = () => {
         dispatch(decrement());
     };
 
-    const { data, error } = useSWR("/api/fake_api", fetcher);
+    const { data, error } = useSWR("/api/fake_api", fetcher, { refreshInterval: 1000 });
     console.table({ data, error })
 
     return (
