@@ -66,3 +66,13 @@ func main() {
 		log.Fatal(http.ListenAndServe(":3333", router))
 	}
 }
+
+// now with the gorilla/mux router, a path like `albums/{albumName}/song/{songName}` is possible
+// and a handler like the following allows access to these variables in the url path
+// r.HandleFunc(`albums/{albumName}/song/{songName}`, func(w http.ResponseWriter, r *http.Request) {
+//     vars := mux.Vars(r)
+//     albumName := vars["albumName"]
+//     songName := vars["songName"]
+
+//     fmt.Fprintf(w, "You've requested the song: %s on album %s\n", songName, albumName)
+// })
