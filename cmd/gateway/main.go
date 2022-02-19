@@ -10,6 +10,7 @@ import (
 	"github.com/carlmjohnson/gateway"
 	"github.com/frankmeza/netlify-go/api/chuck"
 	fakeApi "github.com/frankmeza/netlify-go/api/fake_api"
+	"github.com/gorilla/mux"
 )
 
 func enableCORS(next http.HandlerFunc) http.HandlerFunc {
@@ -48,18 +49,20 @@ func main() {
 		log.Fatal(err)
 	}
 
+	router := mux.NewRouter()
 	// The static Next.js app will be served under `/`.
-	http.Handle("/", http.FileServer(http.FS(distFS)))
-	http.HandleFunc("/api/chuck", enableCORS(chuck.HandleChuckJoke))
-	http.HandleFunc("/api/fake_api", enableCORS(fakeApi.HandleFetchJSON))
+	router.Handle("/", http.FileServer(http.FS(distFS)))
+
+	router.HandleFunc("/api/chuck", enableCORS(chuck.HandleChuckJoke))
+	router.HandleFunc("/api/fake_api", enableCORS(fakeApi.HandleFetchJSON))
 
 	if *isDevelopment == 0 {
 		// netlify
 		println("append -dev 1 to start server on :3333")
-		log.Fatal(gateway.ListenAndServe("", nil))
+		log.Fatal(gateway.ListenAndServe("", router))
 	} else {
 		// local
 		println("server running on localhost:3333")
-		log.Fatal(http.ListenAndServe(":3333", nil))
+		log.Fatal(http.ListenAndServe(":3333", router))
 	}
 }
