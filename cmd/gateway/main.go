@@ -10,6 +10,7 @@ import (
 	"github.com/carlmjohnson/gateway"
 	"github.com/frankmeza/netlify-go/api/chuck"
 	fakeApi "github.com/frankmeza/netlify-go/api/fake_api"
+	"github.com/frankmeza/netlify-go/api/health"
 	"github.com/gorilla/mux"
 )
 
@@ -52,6 +53,7 @@ func main() {
 	router := mux.NewRouter()
 	// The static Next.js app will be served under `/`.
 	router.Handle("/", http.FileServer(http.FS(distFS)))
+	router.HandleFunc("/health", enableCORS(health.Check))
 
 	router.HandleFunc("/api/chuck", enableCORS(chuck.HandleChuckJoke))
 	router.HandleFunc("/api/fake_api", enableCORS(fakeApi.HandleFetchJSON))
