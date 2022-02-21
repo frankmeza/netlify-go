@@ -9,11 +9,11 @@ import (
 	"net/http"
 
 	"github.com/carlmjohnson/gateway"
-	"github.com/frankmeza/netlify-go/api/chuck"
-	fakeApi "github.com/frankmeza/netlify-go/api/fake_api"
-	"github.com/frankmeza/netlify-go/api/health"
-	goTemplates "github.com/frankmeza/netlify-go/go_templates"
-	"github.com/frankmeza/netlify-go/utils"
+	"github.com/frankmeza/netlify-go/pkg/api/chuck"
+	fakeApi "github.com/frankmeza/netlify-go/pkg/api/fake_api"
+	"github.com/frankmeza/netlify-go/pkg/api/health"
+	goTemplates "github.com/frankmeza/netlify-go/pkg/go_templates"
+	"github.com/frankmeza/netlify-go/pkg/utils"
 	"github.com/gorilla/mux"
 )
 
