@@ -1,18 +1,9 @@
+# @prettier
 # this is for local development,
 # netlify.toml handles all netlify tasks
-version: '3'
+version: "3"
 
 tasks:
-  server:
-    dir: cmd/gateway
-    cmds:
-      - go run main.go -dev 1
-
-  health:
-    dir: cmd/gateway
-    cmds:
-      - curl localhost:3333/health
-
   client:
     dir: cmd/gateway/nextjs
     cmds:
@@ -22,3 +13,16 @@ tasks:
     dir: cmd/gateway/nextjs
     cmds:
       - yarn run build
+
+  health:
+    dir: cmd/gateway
+    cmds:
+      - curl localhost:3333/health
+
+  server:
+    dir: cmd/gateway
+    cmds:
+      - go run main.go -dev 1
+# run `task server` in one window,
+# run `task client` in another,
+# then go to localhost:3000
