@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { META } from "../constant_values/index.js";
+import { META } from "../constant_values";
 import headerStyles from "../styles/header.js";
 
 const Header = () => {

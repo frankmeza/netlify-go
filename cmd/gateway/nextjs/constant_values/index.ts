@@ -3,7 +3,6 @@ export const LINK_HREF = {
     LOGIN: "/login",
 };
 
-
 export const ATTRIBUTION = "Hand-crafted with love by ";
 export const EMOJI = "  🤙🏽 🤙🏽  ";
 
