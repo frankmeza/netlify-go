@@ -10,5 +10,5 @@ export async function fetcher(slug: string) {
     const url = generateUrlForEnv(slug);
     const resp = await fetch(url);
 
-    return resp.text();
+    return resp.json();
 }
