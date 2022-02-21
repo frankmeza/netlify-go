@@ -9,12 +9,14 @@ import (
 	"net/http"
 
 	"github.com/carlmjohnson/gateway"
+	"github.com/gorilla/mux"
+
 	"github.com/frankmeza/netlify-go/pkg/api/chuck"
 	fakeApi "github.com/frankmeza/netlify-go/pkg/api/fake_api"
 	"github.com/frankmeza/netlify-go/pkg/api/health"
 	goTemplates "github.com/frankmeza/netlify-go/pkg/go_templates"
+
 	"github.com/frankmeza/netlify-go/pkg/utils"
-	"github.com/gorilla/mux"
 )
 
 //go:embed nextjs/dist
@@ -36,7 +38,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	firstTemplate := template.Must(template.ParseFiles("../../go_templates/first.html"))
+	firstTemplate := template.Must(template.ParseFiles("../../pkg/go_templates/first.html"))
 
 	router := mux.NewRouter()
 
