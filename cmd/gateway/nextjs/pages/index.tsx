@@ -14,11 +14,8 @@ import containerStyles from "../styles/container.js";
 import summaryStyles from "../styles/summary.js";
 
 const IndexPage = (): JSX.Element => {
-    const { data, error } = useSWR("/api/fake_api", fetcher, {
-        refreshInterval: 0,
-    });
-
-    console.table({ data, error });
+    const { data, error } = useSWR("/health", fetcher);
+    console.log({ data, error });
 
     return (
         <React.Fragment>
