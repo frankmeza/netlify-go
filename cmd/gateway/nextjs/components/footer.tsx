@@ -1,36 +1,14 @@
 import Link from "next/link";
 import React from "react";
+import { SOCIAL_LINKS } from "../constant_values";
 import footerStyles from "../styles/footer";
 
 const ATTRIBUTION = "Hand-crafted with love by ";
-const EMOJI = "  🤙🏽 🤙🏽  "
+const EMOJI = "  🤙🏽 🤙🏽  ";
 
 const THEME_AUTHOR = {
     NAME: "Yinka Adedire",
     TWITTER: "https://twitter.com/yinkakun",
-};
-
-const SOCIAL_LINKS = {
-    GITHUB: {
-        SITE_NAME: "GITHUB",
-        NAME: "",
-        URL: "",
-    },
-    LINKED_IN: {
-        SITE_NAME: "LINKED IN",
-        NAME: "",
-        URL: "",
-    },
-    TELEGRAM: {
-        SITE_NAME: "TELEGRAM",
-        NAME: "",
-        URL: "",
-    },
-    INSTAGRAM: {
-        SITE_NAME: "INSTAGRAM",
-        NAME: "",
-        URL: "",
-    },
 };
 
 const Footer = () => {

@@ -1,3 +1,8 @@
+export const LINK_HREF = {
+    HOME: "/",
+    LOGIN: "/login",
+};
+
 export const STRINGS = {
     ABOUT: "About",
     CANCEL: "Cancel",
@@ -17,7 +22,25 @@ export const STRINGS = {
     YOUR_WEBSITE: "YOUR WEBSITE",
 };
 
-export const LINK_HREF = {
-    HOME: "/",
-    LOGIN: "/login",
+export const SOCIAL_LINKS = {
+    GITHUB: {
+        SITE_NAME: "GITHUB",
+        NAME: "",
+        URL: "",
+    },
+    LINKED_IN: {
+        SITE_NAME: "LINKED IN",
+        NAME: "",
+        URL: "",
+    },
+    TELEGRAM: {
+        SITE_NAME: "TELEGRAM",
+        NAME: "",
+        URL: "",
+    },
+    INSTAGRAM: {
+        SITE_NAME: "INSTAGRAM",
+        NAME: "",
+        URL: "",
+    },
 };
