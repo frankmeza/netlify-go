@@ -2,11 +2,19 @@ import React from "react";
 
 import Layout from "../components/layout";
 
+import About, * as AboutProps from "./markdown/about.mdx";
 import aboutStyles from "../styles/about.js";
 
-import About from "./markdown/about.mdx";
+interface AboutPropsMdx {
+    title: string
+}
+
+const mdxProps: AboutPropsMdx = {
+    title: AboutProps["title"]
+}
 
 const AboutPage = () => {
+    console.table({ mdxProps })
     return (
         <React.Fragment>
             <style jsx>{aboutStyles}</style>
