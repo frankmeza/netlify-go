@@ -1,5 +1,5 @@
 [build]
-  command = "task build-prod"
+  command = "./build.sh"
   functions = "functions"
   publish = "cmd/gateway/nextjs/dist"
 
