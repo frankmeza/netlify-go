@@ -1,0 +1,18 @@
+<h1>{{.Title}}</h1>
+
+<ul>
+    {{range .SomeFoos}}
+    <li id="{{.Name}}" onclick="nameAndProfession({{.Name}})">
+        {{.Name}} : {{.Profession}}
+    </li>
+    {{end}}
+</ul>
+
+<script>
+    const nameAndProfession = (name = "") => {
+        const gotIt = document.getElementById(name);
+        console.log(this);
+        console.log(gotIt);
+        console.log(name);
+    };
+</script>
