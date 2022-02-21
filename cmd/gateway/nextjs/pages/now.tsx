@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 
 import nowStyles from "../styles/now.js";
 
-import About from "./markdown/about.mdx";
+import About from "./blog_content/about.mdx";
 
 const AboutPage = () => {
     return (

@@ -7,7 +7,7 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import Posts from "../components/posts";
 
-import Summary from "../pages/markdown/summary.mdx";
+import Summary from "../pages/blog_content/summary.mdx";
 
 import globalStyles from "../styles/global.js";
 import containerStyles from "../styles/container.js";

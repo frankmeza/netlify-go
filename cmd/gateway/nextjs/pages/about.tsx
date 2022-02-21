@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 
-import About, * as AboutProps from "./markdown/about.mdx";
+import About, * as AboutProps from "./blog_content/about.mdx";
 import aboutStyles from "../styles/about.js";
 
 interface AboutPropsMdx {
