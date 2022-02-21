@@ -26,12 +26,12 @@ tasks:
 
   build-prod:
     cmds:
+      - set -euxo pipefail
       - task: client-export
       - mkdir -p "$(pwd)/functions"
       - GOBIN=$(pwd)/functions go install ./...
       - chmod +x "$(pwd)"/functions/*
       - go env
-
 # run `task server` in one window,
 # run `task client` in another,
 # then go to localhost:3000
