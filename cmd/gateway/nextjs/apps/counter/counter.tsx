@@ -6,10 +6,11 @@ import { decrement, increment } from "../../store/slices/counter";
 
 import { STRINGS } from "../../constant_values";
 import classNames from "classnames";
-import useSWR from "swr";
-import { fetcher } from "../../utils";
 
 const { DECREMENT, INCREMENT } = STRINGS;
+
+const containerStyles = classNames("m-6");
+const sumStyles = classNames("is-size-2");
 
 const decrementButtonStyle = classNames(
     "button",
@@ -24,10 +25,6 @@ const incrementButtonStyle = classNames(
     "is-large",
     "m-6",
 );
-
-const sumStyles = classNames("is-size-2");
-
-const containerStyles = classNames("m-6")
 
 const Counter = () => {
     const dispatch = useDispatch();
@@ -44,9 +41,6 @@ const Counter = () => {
         dispatch(decrement());
     };
 
-    const { data, error } = useSWR("/api/fake_api", fetcher, { refreshInterval: 1000 });
-    console.table({ data, error })
-
     return (
         <React.Fragment>
             <div className={containerStyles}>
@@ -54,8 +48,7 @@ const Counter = () => {
                     <button
                         aria-label="Increment value"
                         className={incrementButtonStyle}
-                        onClick={onClickIncrement}
-                    >
+                        onClick={onClickIncrement}>
                         {INCREMENT}
                     </button>
 
@@ -64,8 +57,7 @@ const Counter = () => {
                     <button
                         aria-label="Decrement value"
                         className={decrementButtonStyle}
-                        onClick={onClickDecrement}
-                    >
+                        onClick={onClickDecrement}>
                         {DECREMENT}
                     </button>
                 </div>

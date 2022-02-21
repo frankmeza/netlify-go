@@ -1,15 +1,12 @@
 import Link from "next/link";
 import React from "react";
-import { SOCIAL_LINKS } from "../constant_values";
+import {
+    ATTRIBUTION,
+    EMOJI,
+    SOCIAL_LINKS,
+    THEME_AUTHOR,
+} from "../constant_values";
 import footerStyles from "../styles/footer";
-
-const ATTRIBUTION = "Hand-crafted with love by ";
-const EMOJI = "  🤙🏽 🤙🏽  ";
-
-const THEME_AUTHOR = {
-    NAME: "Yinka Adedire",
-    TWITTER: "https://twitter.com/yinkakun",
-};
 
 const Footer = () => {
     return (

@@ -1,26 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import { META } from "../constant_values/index.js";
 import headerStyles from "../styles/header.js";
-
-const META = {
-    TITLE: {
-        TEXT: "TITLE",
-        URL: "/",
-    },
-    ABOUT: {
-        TEXT: "about",
-        URL: "/about",
-    },
-    BLOG: {
-        TEXT: "blog",
-        URL: "/blog",
-    },
-    NOW: {
-        TEXT: "now",
-        URL: "/now",
-    },
-};
 
 const Header = () => {
     return (

@@ -3,6 +3,34 @@ export const LINK_HREF = {
     LOGIN: "/login",
 };
 
+
+export const ATTRIBUTION = "Hand-crafted with love by ";
+export const EMOJI = "  🤙🏽 🤙🏽  ";
+
+export const THEME_AUTHOR = {
+    NAME: "Yinka Adedire",
+    TWITTER: "https://twitter.com/yinkakun",
+};
+
+export const META = {
+    TITLE: {
+        TEXT: "TITLE",
+        URL: "/",
+    },
+    ABOUT: {
+        TEXT: "about",
+        URL: "/about",
+    },
+    BLOG: {
+        TEXT: "blog",
+        URL: "/blog",
+    },
+    NOW: {
+        TEXT: "now",
+        URL: "/now",
+    },
+};
+
 export const STRINGS = {
     ABOUT: "About",
     CANCEL: "Cancel",
