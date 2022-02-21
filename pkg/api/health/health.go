@@ -1,11 +1,14 @@
 package health
 
 import (
-	"fmt"
+	"encoding/json"
 	"net/http"
 	"time"
 )
 
 func Check(w http.ResponseWriter, _r *http.Request) {
-	fmt.Fprintf(w, "\n%v\n%s\n\n", "app is healthy!", time.Now())
+	json.NewEncoder(w).Encode(map[string]string{
+		"now": time.Now().String(),
+		"ok":  "true",
+	})
 }
