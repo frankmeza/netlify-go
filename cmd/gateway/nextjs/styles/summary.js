@@ -1,7 +1,5 @@
 import css from "styled-jsx/css";
 
-// todo make css const for margin-top, margin-bottom
-
 export default css.summaryStyles`
 .summary {
     align-items: center;
@@ -14,7 +12,7 @@ export default css.summaryStyles`
     max-width: 60ch;
     margin-right: auto;
     margin-left: auto;
-    margin-top: var(--size-800);
+    margin-top: 15rem;
     margin-bottom: var(--size-900);
     text-align: center;
     text-rendering: optimizeSpeed;

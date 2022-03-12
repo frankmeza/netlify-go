@@ -43,5 +43,5 @@ const Header = () => {
         </React.Fragment>
     );
 };
-//*[@id="__next"]/div[1]/div/div[2]/div/div[1]/a
+
 export default Header;

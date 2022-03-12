@@ -4,7 +4,6 @@ import css from "styled-jsx/css";
 
 export default css.aboutStyles`
 .about_wrapper {
-    // border: solid red;
     margin-top: 9rem;
     margin-bottom: 21rem;
     display: flex;
