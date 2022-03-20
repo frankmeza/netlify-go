@@ -5,14 +5,14 @@ import { fetcher } from "../utils";
 
 import Footer from "../components/footer";
 import Header from "../components/header";
+import Layout from "../components/layout";
 import Posts from "../components/posts";
 
 import Summary from "../pages/blog_content/summary.mdx";
 
-import globalStyles from "../styles/global.js";
-import containerStyles from "../styles/container.js";
-import summaryStyles from "../styles/summary.js";
-import Layout from "../components/layout";
+import globalStyles from "../styles/global";
+import containerStyles from "../styles/container";
+import summaryStyles from "../styles/summary";
 
 const IndexPage = (): JSX.Element => {
     const { data, error } = useSWR("/health", fetcher);

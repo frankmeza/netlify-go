@@ -7,13 +7,12 @@ export default css.summaryStyles`
     color: #37292C;
     display: flex;
     flex-direction: column;
-    font-family: 'Poppins', -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,Ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
     line-height: 1.5;
     max-width: 60ch;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 15rem;
-    margin-bottom: var(--size-900);
+    margin-bottom: 4rem;
     text-align: center;
     text-rendering: optimizeSpeed;
     -webkit-box-align: center;
