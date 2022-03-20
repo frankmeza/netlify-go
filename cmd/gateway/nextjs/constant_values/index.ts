@@ -63,8 +63,8 @@ export const STRINGS = {
     YOUR_WEBSITE: "YOUR WEBSITE",
 };
 
-export const ATTRIBUTION = "Hand-crafted with love by ";
-export const EMOJI = "  🤙🏽 🤙🏽  ";
+export const ATTRIBUTION = "Based on a theme by ";
+export const EMOJI = "  🤙🏽  ";
 
 export const THEME_AUTHOR = {
     NAME: "Yinka Adedire",
