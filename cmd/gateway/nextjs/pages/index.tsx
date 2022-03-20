@@ -12,6 +12,7 @@ import Summary from "../pages/blog_content/summary.mdx";
 import globalStyles from "../styles/global.js";
 import containerStyles from "../styles/container.js";
 import summaryStyles from "../styles/summary.js";
+import Layout from "../components/layout";
 
 const IndexPage = (): JSX.Element => {
     const { data, error } = useSWR("/health", fetcher);
@@ -26,19 +27,17 @@ const IndexPage = (): JSX.Element => {
             <style jsx>{containerStyles}</style>
             <style jsx>{summaryStyles}</style>
 
-            <Header />
+            <Layout>
+                <main>
+                    <div className="container">
+                        <div className="summary">
+                            <Summary />
+                        </div>
 
-            <main>
-                <div className="container">
-                    <div className="summary">
-                        <Summary />
+                        <Posts />
                     </div>
-
-                    <Posts />
-                </div>
-            </main>
-
-            <Footer />
+                </main>
+            </Layout>
         </React.Fragment>
     );
 };

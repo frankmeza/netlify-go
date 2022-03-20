@@ -60,6 +60,7 @@ export const STRINGS = {
     REPORT_ISSUE: "Report an issue",
     SUBMIT: "Submit",
     SIGN_UP: "Sign up",
+    VIEW_ALL_POSTS: "View all posts",
     YOUR_WEBSITE: "YOUR WEBSITE",
 };
 

@@ -2,6 +2,8 @@ import React from "react";
 
 import * as AboutProps from "../pages/blog_content/about.mdx";
 
+import { STRINGS } from "../constant_values";
+
 import postExcerptStyles from "../styles/posts.js";
 
 interface MdxProps {
@@ -48,6 +50,7 @@ const displayPostExcerpts = () => {
                 </div>
                 <h3>{mdxProp.title}</h3>
                 <p>{mdxProp.summary}</p>
+
                 <div className="post-excerpt-bottom-row">
                     <span>{mdxProp.publishDate}</span>
                     <span>{mdxProp.timeToRead}</span>
@@ -63,6 +66,13 @@ const Posts = () => {
             <style jsx>{postExcerptStyles}</style>
 
             <ul>{displayPostExcerpts()}</ul>
+            <a
+                className="post-excerpts-link-to-blog"
+                href="#"
+                onClick={() => alert("add link to blog page")}
+            >
+                {STRINGS.VIEW_ALL_POSTS}
+            </a>
         </React.Fragment>
     );
 };

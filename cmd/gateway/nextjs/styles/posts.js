@@ -7,7 +7,7 @@ ul {
     grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
     justify-items: center;
     list-style: none;
-    margin: 0 10rem;
+    margin: 0 6rem;
     padding: 0px;
 }
 
@@ -50,5 +50,20 @@ li {
     -webkit-box-pack: justify;
     justify-content: space-between;
 }
+
+.post-excerpts-link-to-blog {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    color: inherit;
+    display: block;
+    margin-bottom: var(--size-800);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--size-800);
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: fit-content;
 }
 `;
