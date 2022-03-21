@@ -1,22 +1,27 @@
 import React from "react";
-
 import useSWR from "swr";
+
 import { fetcher } from "../utils";
 
-import Footer from "../components/footer";
-import Header from "../components/header";
 import Layout from "../components/layout";
 import Posts from "../components/posts";
 
 import Summary from "../pages/blog_content/summary.mdx";
 
 import globalStyles from "../styles/global";
-import containerStyles from "../styles/container";
 import summaryStyles from "../styles/summary";
+
+const getHealthCheck = (data: any, error: any) => {
+    if (!!error) {
+        return <h3>{error}</h3>;
+    } else {
+        console.log(data);
+    }
+};
 
 const IndexPage = (): JSX.Element => {
     const { data, error } = useSWR("/health", fetcher);
-    console.log({ data, error });
+    getHealthCheck(data, error);
 
     return (
         <React.Fragment>
@@ -24,18 +29,15 @@ const IndexPage = (): JSX.Element => {
                 {globalStyles}
             </style>
 
-            <style jsx>{containerStyles}</style>
             <style jsx>{summaryStyles}</style>
 
             <Layout>
                 <main>
-                    <div className="container">
-                        <div className="summary">
-                            <Summary />
-                        </div>
-
-                        <Posts />
+                    <div className="summary">
+                        <Summary />
                     </div>
+
+                    <Posts />
                 </main>
             </Layout>
         </React.Fragment>

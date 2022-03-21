@@ -2,7 +2,7 @@ import React from "react";
 
 import Layout from "../components/layout";
 
-import notFoundStyles from "../styles/404.js";
+import notFoundStyles from "../styles/404";
 
 const NotFoundPage = () => {
     return (
