@@ -12,20 +12,6 @@ const { DECREMENT, INCREMENT } = STRINGS;
 const containerStyles = classNames("m-6");
 const sumStyles = classNames("is-size-2");
 
-const decrementButtonStyle = classNames(
-    "button",
-    "is-danger",
-    "is-large",
-    "m-6",
-);
-
-const incrementButtonStyle = classNames(
-    "button",
-    "is-primary",
-    "is-large",
-    "m-6",
-);
-
 const Counter = () => {
     const dispatch = useDispatch();
 
@@ -47,8 +33,14 @@ const Counter = () => {
                 <div className="buttons">
                     <button
                         aria-label="Increment value"
-                        className={incrementButtonStyle}
-                        onClick={onClickIncrement}>
+                        className={classNames(
+                            "button",
+                            "is-primary",
+                            "is-large",
+                            "m-6",
+                        )}
+                        onClick={onClickIncrement}
+                    >
                         {INCREMENT}
                     </button>
 
@@ -56,8 +48,14 @@ const Counter = () => {
 
                     <button
                         aria-label="Decrement value"
-                        className={decrementButtonStyle}
-                        onClick={onClickDecrement}>
+                        className={classNames(
+                            "button",
+                            "is-danger",
+                            "is-large",
+                            "m-6",
+                        )}
+                        onClick={onClickDecrement}
+                    >
                         {DECREMENT}
                     </button>
                 </div>

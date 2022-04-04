@@ -5,7 +5,7 @@ export const LINK_HREF = {
 export const META = {
     TITLE: {
         TEXT: "TITLE",
-        URL: "/",
+        URL: "",
     },
     ABOUT: {
         TEXT: "about",

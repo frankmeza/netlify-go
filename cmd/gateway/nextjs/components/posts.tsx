@@ -29,16 +29,17 @@ const mdxProps: MdxPropsMap = {
 };
 
 const displayPostExcerpts = () => {
-    return Object.values(mdxProps).map((mdxProp) => {
+    return Object.values(mdxProps).map((mdxProp, index) => {
         return (
-            <li key={mdxProp.title}>
+            <li key={`${mdxProp.title}-li-${index}`}>
                 <style jsx>{postExcerptStyles}</style>
                 <div>
-                    {mdxProp.tags.map((tag) => {
+                    {mdxProp.tags.map((tag, tagIndex) => {
                         return (
                             <a
+                                key={`${mdxProp.title}-a-${index}-${tagIndex}`}
                                 className="post-excerpt-tag"
-                                href="#"
+                                href=""
                                 onClick={() =>
                                     alert("add tags page and link from here")
                                 }

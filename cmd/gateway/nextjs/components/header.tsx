@@ -13,7 +13,7 @@ const Header = () => {
                 <div className="header_wrapper">
                     <div className="header_title">
                         <Link href={META.TITLE.URL}>
-                            <a>{META.TITLE.TEXT}</a>
+                            <p>{META.TITLE.TEXT}</p>
                         </Link>
                     </div>
 
@@ -21,19 +21,19 @@ const Header = () => {
                         <div className="styled_nav_list">
                             <div className="styled_nav_list_item">
                                 <Link href={META.ABOUT.URL}>
-                                    <a>{META.ABOUT.TEXT}</a>
+                                    <p>{META.ABOUT.TEXT}</p>
                                 </Link>
                             </div>
 
                             <div className="styled_nav_list_item">
                                 <Link href={META.BLOG.URL}>
-                                    <a>{META.BLOG.TEXT}</a>
+                                    <p>{META.BLOG.TEXT}</p>
                                 </Link>
                             </div>
 
                             <div className="styled_nav_list_item">
                                 <Link href={META.NOW.URL}>
-                                    <a>{META.NOW.TEXT}</a>
+                                    <p>{META.NOW.TEXT}</p>
                                 </Link>
                             </div>
                         </div>

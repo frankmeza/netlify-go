@@ -18,25 +18,25 @@ const Footer = () => {
                     <ul className="social_link_list">
                         <li className="social_link_item">
                             <Link href={SOCIAL_LINKS.GITHUB.URL}>
-                                <a>{SOCIAL_LINKS.GITHUB.SITE_NAME}</a>
+                                <p>{SOCIAL_LINKS.GITHUB.SITE_NAME}</p>
                             </Link>
                         </li>
 
                         <li className="social_link_item">
                             <Link href={SOCIAL_LINKS.LINKED_IN.URL}>
-                                <a>{SOCIAL_LINKS.LINKED_IN.SITE_NAME}</a>
+                                <p>{SOCIAL_LINKS.LINKED_IN.SITE_NAME}</p>
                             </Link>
                         </li>
 
                         <li className="social_link_item">
                             <Link href={SOCIAL_LINKS.TELEGRAM.URL}>
-                                <a>{SOCIAL_LINKS.TELEGRAM.SITE_NAME}</a>
+                                <p>{SOCIAL_LINKS.TELEGRAM.SITE_NAME}</p>
                             </Link>
                         </li>
 
                         <li className="social_link_item">
                             <Link href={SOCIAL_LINKS.INSTAGRAM.URL}>
-                                <a>{SOCIAL_LINKS.INSTAGRAM.SITE_NAME}</a>
+                                <p>{SOCIAL_LINKS.INSTAGRAM.SITE_NAME}</p>
                             </Link>
                         </li>
                     </ul>
